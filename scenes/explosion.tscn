@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://bnuj3u880wmbg"]
+
+[ext_resource type="Texture2D" uid="uid://dp3k5ed0t2bf2" path="res://assets/sprites/explosion_spritesheet.png" id="1_ua5vn"]
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="2_fmqhb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_636su"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfsdm"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjcn3"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56adw"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxrxb"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mj0p"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uydv2"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmhnj"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub6ne"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndtm5"]
+atlas = ExtResource("1_ua5vn")
+region = Rect2(576, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inqkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_636su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfsdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjcn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56adw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxrxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mj0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uydv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmhnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub6ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndtm5")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 16.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_inqkb")
+animation = &"explode"
+autoplay = "explode"
+script = ExtResource("2_fmqhb")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://chd5ct8oolrfj"]
+
+[ext_resource type="Script" path="res://scripts/enemy_spaceship.gd" id="1_cyons"]
+[ext_resource type="Texture2D" uid="uid://cs4a5x8fbd6gh" path="res://assets/sprites/spaceship.png" id="1_xdck3"]
+[ext_resource type="PackedScene" uid="uid://bnuj3u880wmbg" path="res://scenes/explosion.tscn" id="2_lb7bs"]
+
+[node name="EnemySpaceship" type="Area2D" groups=["enemies"]]
+script = ExtResource("1_cyons")
+explosion_scene = ExtResource("2_lb7bs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_xdck3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(16.5, -16, -4.9, -16, -6.5, -15.2, -6.5, -12.5, -26.9, -5, -31.5, -5, -31.5, 5.5, -7.8, 13, -5.7, 13, -4.5, 15.5, 17.3, 16, 18.5, 14.8, 18.5, 10, 29.7, 10, 27.5, -9.2, 27.5, -11.3, 25, -12.4, 22.7, -10, 18, -10, 16.5, -15)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3g3k77lgl38x"]
+
+[ext_resource type="Script" path="res://scripts/rocket.gd" id="1_i6262"]
+[ext_resource type="Texture2D" uid="uid://216b5dn4k3gw" path="res://assets/sprites/rocket.png" id="2_18nve"]
+[ext_resource type="AudioStream" uid="uid://dsupxp348g86t" path="res://assets/sounds/rocket_shot_sfx.wav" id="3_j1j3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uxnf"]
+size = Vector2(64, 32)
+
+[node name="Rocket" type="Area2D"]
+script = ExtResource("1_i6262")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_18nve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4uxnf")
+
+[node name="FireSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j1j3t")
+volume_db = -10.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
